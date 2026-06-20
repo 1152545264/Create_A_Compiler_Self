@@ -254,13 +254,13 @@ public:
     }
 
 private:
-    [[nodiscard]] inline std::optional<char> peek(const size_t ahead = 0) const
+    [[nodiscard]] inline std::optional<char> peek(const size_t offset = 0) const
     {
-        if (m_index + ahead >= m_src.length())
+        if (m_index + offset >= m_src.length())
         {
             return {};
         }
-        return m_src.at(m_index + ahead);
+        return m_src.at(m_index + offset);
     }
 
     inline char consume() { return m_src.at(m_index++); }
